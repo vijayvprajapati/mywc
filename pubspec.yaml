@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.5.1
+  sdk: '>=3.2.3 <4.0.0'
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -34,18 +34,168 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.8
+  cupertino_icons: ^1.0.2
+
+  #localization
+  flutter_localizations:
+    sdk: flutter
+  intl: any
+  intl_utils: ^2.8.4
+
+  #network
+  dio: ^5.4.1
+  http: ^1.2.0
+  connectivity_plus: ^6.1.2
+
+   #dio logger
+  pretty_dio_logger: ^1.3.1
+
+  #depencency injection
+  get_it: ^8.0.3
+  
+  #storage
+  hive: ^2.2.3
+  path_provider: ^2.1.2
+
+  #retrofit
+  retrofit: ^4.1.0
+  #annotation for json serializable class field
+  json_annotation: ^4.8.1
+ 
+  
+  #bloc
+  equatable: ^2.0.5
+  flutter_bloc: ^9.0.0
+  bloc: ^9.0.0
+
+  #caching network images
+  cached_network_image: ^3.3.1
+
+  #lokalise_flutter_sdk: ^1.2.0
+
+ # responsive
+  flutter_screenutil: ^5.8.4
+  in_app_review: ^2.0.8
+
+  #navigation
+  #auto_route: ^7.8.0
+  #go_router: ^13.2.0
+
+
+  # encryption
+  encrypt: ^5.0.1
+  crypto: ^3.0.3
+
+ 
+
+  #common widget
+  form_field_validator: ^1.1.0
+  country_pickers: ^3.0.1
+  webview_flutter: ^4.2.2
+  device_info_plus: ^11.2.1
+
+  #document picker
+  image_picker: ^1.0.2
+  image_cropper: ^8.1.0
+
+  #file_picker: ^5.3.3
+
+  #url launcher & sharing data
+  url_launcher: ^6.1.12
+  share_plus: ^10.1.4
+
+  #permission handing
+  permission_handler: ^11.3.1
+
+  #social login
+  #twitter_login: ^4.4.2
+  #google_sign_in: ^6.1.4
+  #sign_in_with_apple: ^5.0.0
+  #flutter_web_auth: ^0.5.0
+  #flutter_facebook_auth: ^6.0.1
+
+
+   #firebase
+  firebase_core: ^3.10.0
+  firebase_auth: ^5.4.0
+  cloud_firestore: ^5.6.1
+  firebase_storage: ^12.4.0
+
+  uuid: ^4.5.1
+  flutter_svg: ^2.0.7
+  flutter_switch: ^0.3.2
+  syncfusion_flutter_sliders: ^28.1.39
+  smooth_page_indicator: ^1.1.0
+  pinput: ^5.0.1
+  dropdown_button2: ^2.3.9
+
+ 
+  #camera: ^0.10.5+5
+  #video_player: ^2.7.2
+  flutter_time_picker_spinner: ^2.0.0
+  toggle_switch: ^2.1.0
+  shared_preferences: ^2.2.2
+ # crash analytics
+  firebase_crashlytics: ^4.3.0
+  firebase_analytics: ^11.4.0
+
+  speech_to_text: ^7.0.0
+  #agora sdk for video call
+  agora_uikit: ^1.3.6
+  
+  pull_to_refresh: ^2.0.0
+  shimmer: ^3.0.0
+ 
+  #location
+  geolocator: ^13.0.2
+  geocoding: ^3.0.0
+  
+  flutter_timezone: ^4.0.0
+  emoji_picker_flutter: ^4.2.0
+  #stripe payment gateway
+  flutter_stripe: ^11.3.0
+  
+  flutter_dotenv: ^5.1.0
+
+  #firebase push notification
+  firebase_messaging: ^15.2.0
+  flutter_local_notifications: ^18.0.1
+  
+  flutter_native_splash: ^2.3.9
+  maps_launcher: ^3.0.0+1
+  #for playing video
+  video_player:
+  #video player controller
+  chewie: ^1.7.5
+  #appinio_video_player: ^1.3.0
+  
+  #google gemini for chatbot
+  flutter_gemini: ^3.0.0
+  
+  flutter_markdown: ^0.7.5
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+  hive_generator: ^2.0.1
+  # to generate .g file
+  build_runner: ^2.4.8
+  #helpful to generate retrofit api client class .g file
+  retrofit_generator: ^9.1.5
+  #To generate to/from JSON code .g file for a class
+  json_serializable: ^6.7.1
+
+ 
+
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^4.0.0
+  flutter_lints: ^3.0.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -58,16 +208,21 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
+  # The following section is specific to Flutter.
+
+  #for generate language files
+  generate: true
+
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
-  # https://flutter.dev/to/resolution-aware-images
+  # https://flutter.dev/assets-and-images/#resolution-aware
 
   # For details regarding adding assets from package dependencies, see
-  # https://flutter.dev/to/asset-from-package
+  # https://flutter.dev/assets-and-images/#from-packages
 
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
@@ -87,4 +242,247 @@ flutter:
   #         weight: 700
   #
   # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/to/font-from-package
+  # see https://flutter.dev/custom-fonts/#from-packages
+
+#for binding between arb files and app and will
+#help to generate boilerplate code for language utilize
+
+flutter_intl:
+  enabled: true # Required. Must be set to true to activate the package. Default: false
+  class_name: S # Optional. Sets the name for the generated localization class. Default: S
+  main_locale: en # Optional. Sets the main locale used for generating localization files. Provided value should consist of language code and optional script and country codes separated with underscore (e.g. 'en', 'en_GB', 'zh_Hans', 'zh_Hans_CN'). Default: en
+  arb_dir: lib/l10n # Optional. Sets the directory of your ARB resource files. Provided value should be a valid path on your system. Default: lib/l10n
+  output_dir: lib/generated # Optional. Sets the directory of generated localization files. Provided value should be a valid path on your system. Default: lib/generated
+#    use_deferred_loading: false # Optional. Must be set to true to generate localization code that is loaded with deferred loading. Default: false
+#    localizely: # Optional settings if you use Localizely platform. Read more: https://localizely.com/blog/flutter-localization-step-by-step/?tab=automated-using-flutter-intl
+#      project_id: # Get it from the https://app.localizely.com/projects page.
+#      branch: # Get it from the “Branches” page on the Localizely platform, in case branching is enabled and you want to use a non-main branch.
+#      upload_overwrite: # Set to true if you want to overwrite translations with upload. Default: false
+#      upload_as_reviewed: # Set to true if you want to mark uploaded translations as reviewed. Default: false
+#      upload_tag_added: # Optional list of tags to add to new translations with upload (e.g. ['new', 'New translation']). Default: []
+#      upload_tag_updated: # Optional list of tags to add to updated translations with upload (e.g. ['updated', 'Updated translation']). Default: []
+#      upload_tag_removed: # Optional list of tags to add to removed translations with upload (e.g. ['removed', 'Removed translation']). Default: []
+#      download_empty_as: # Set to empty|main|skip, to configure how empty translations should be exported from the Localizely platform. Default: empty
+#      download_include_tags: # Optional list of tags to be downloaded (e.g. ['include', 'Include key']). If not set, all string keys will be considered for download. Default: []
+#      download_exclude_tags: # Optional list of tags to be excluded from download (e.g. ['exclude', 'Exclude key']). If not set, all string keys will be considered for download. Default: []
+#      ota_enabled: # Set to true if you want to use Localizely Over-the-air functionality. Default: false
+
+
+
+#
+#
+#name: flutter bloc
+#description: A new Flutter project.
+#
+## The following line prevents the package from being accidentally published to
+## pub.dev using `pub publish`. This is preferred for private packages.
+#publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+#
+## The following defines the version and build number for your application.
+## A version number is three numbers separated by dots, like 1.2.43
+## followed by an optional build number separated by a +.
+## Both the version and the builder number may be overridden in flutter
+## build by specifying --build-name and --build-number, respectively.
+## In Android, build-name is used as versionName while build-number used as versionCode.
+## Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+## In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
+## Read more about iOS versioning at
+## https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+#version: 1.0.0+1
+#
+#environment:
+#  sdk: ">=3.0.0 <4.0.0"
+#
+#dependencies:
+#  flutter:
+#    sdk: flutter
+#  #localization
+#  flutter_localizations:
+#    sdk: flutter
+#  intl: 0.18.1
+#  intl_utils: ^2.8.4
+#  lokalise_flutter_sdk: ^1.2.0
+#
+#  # core
+#  flutter_screenutil: ^5.8.4
+#  get_it: ^7.6.0
+#  in_app_review: ^2.0.8
+#
+#  # navigation
+#  auto_route: ^7.8.0
+#
+#  # storage
+#  hive: ^2.2.3
+#  hive_flutter: ^1.1.0
+#  path_provider: ^2.1.0
+#
+#  # network
+#  http: ^1.1.0
+#  dio: ^5.3.2
+#  retrofit: ^4.0.1
+#  json_annotation: ^4.8.1
+#  connectivity_plus: ^4.0.2
+#  pretty_dio_logger: ^1.3.1
+#
+#  # encryption
+#  encrypt: ^5.0.1
+#  crypto: ^3.0.3
+#
+#  # state management
+#  mobx: ^2.2.0
+#  flutter_mobx: ^2.0.6+5
+#
+#  # kyc verification
+#  veriff_flutter: ^3.9.0
+#
+#
+#  # common widget
+#  # use pub source until https://github.com/Baseflow/flutter_cached_network_image/pull/845 is merged
+#  cached_network_image:
+#    git:
+#      url: https://github.com/Carapacik/flutter_cached_network_image.git
+#      path: cached_network_image
+#  form_field_validator: ^1.1.0
+#  country_pickers: ^2.0.0
+#  webview_flutter: ^4.2.2
+#  device_info_plus: ^9.0.3
+#
+#  # document picker
+#  image_picker: ^1.0.2
+#  #file_picker: ^5.3.3
+#
+#  # sharing data
+#  url_launcher: ^6.1.12
+#  share_plus: ^7.1.0
+#
+#  # permission handing
+#  permission_handler: ^10.4.3
+#
+#  #social login
+#  #  twitter_login: ^4.4.2
+#
+#  firebase_core: ^2.24.2
+#  firebase_auth: ^4.7.2
+#  cloud_firestore: ^4.13.6
+#  firebase_storage: ^11.5.6
+#  #  google_sign_in: ^6.1.4
+#  #  sign_in_with_apple: ^5.0.0
+#  #  flutter_web_auth: ^0.5.0
+#  uuid: ^3.0.7
+#  #  flutter_facebook_auth: ^6.0.1
+#  flutter_svg: ^2.0.7
+#  flutter_switch: ^0.3.2
+#  syncfusion_flutter_sliders: ^23.1.42
+#  smooth_page_indicator: ^1.1.0
+#  pinput: ^3.0.1
+#  dropdown_button2: ^2.3.9
+#
+#  #bloc
+#  bloc: ^8.1.2
+#  flutter_bloc: ^8.1.3
+#  equatable: ^2.0.5
+#  #  camera: ^0.10.5+5
+#  #  video_player: ^2.7.2
+#  flutter_time_picker_spinner: ^2.0.0
+#  toggle_switch: ^2.1.0
+#  image_cropper: ^5.0.0
+#  shared_preferences: ^2.2.2
+#  # crash analytics
+#  firebase_crashlytics: ^3.4.3
+#  speech_to_text: ^6.4.0
+#  firebase_analytics: ^10.6.3
+#  # agora sdk
+#  agora_uikit: ^1.3.6
+#  pull_to_refresh: ^2.0.0
+#  shimmer: ^3.0.0
+#  geolocator: ^10.1.0
+#  geocoding: ^2.1.1
+#  flutter_timezone: ^1.0.8
+#  emoji_picker_flutter: ^1.6.3
+#  #stripe payment gateway
+#  flutter_stripe: ^5.0.0
+#  flutter_dotenv: ^5.1.0
+#
+#  #firebase push notification
+#  firebase_messaging: ^14.7.9
+#  flutter_local_notifications: ^16.2.0
+#  flutter_native_splash: ^2.3.9
+#  maps_launcher: ^2.2.0
+#  #for playing video
+#  video_player:
+#  #video player controller
+#  chewie: ^1.7.5
+#  #appinio_video_player: ^1.3.0
+#  #google gemini for chatbot
+#  flutter_gemini: ^2.0.3
+#  flutter_markdown: ^0.6.0
+#
+#
+#
+#flutter_native_splash:
+#  android: true
+#  ios: true
+#  web: false
+#  background_image: "assets/image/splash_image.png"
+#
+#
+#dev_dependencies:
+#  build_runner: ^2.4.6
+#  hive_generator: ^2.0.1
+#  mobx_codegen: ^2.3.0
+#
+#  # Navigation generator
+#  auto_route_generator: ^7.3.1
+#
+#  # API generator
+#  retrofit_generator: ^7.0.8
+#
+#  # json parsing
+#  json_serializable: ^6.7.1
+#
+#  flutter_test:
+#    sdk: flutter
+#
+#dependency_overrides:
+#  xml: any
+#  wakelock: any
+#
+## For information on the generic Dart part of this file, see the
+## following page: https://dart.dev/tools/pub/pubspec
+#
+## The following section is specific to Flutter.
+#flutter:
+#
+#  # The following line ensures that the Material Icons font is
+#  # included with your application, so that you can use the icons in
+#  # the material Icons class.
+#  uses-material-design: true
+#
+#
+#  assets:
+#    - assets/
+#    - assets/fonts/
+#    - assets/image/
+#    - assets/.env
+#    - lib/l10n/
+#    - lib/generated/l10n.dart
+#
+#  fonts:
+#    - family: BeVietnamPro
+#      fonts:
+#        - asset: assets/fonts/be_vietnam_pro_bold.ttf
+#          weight: 700
+#        - asset: assets/fonts/be_vietnam_pro_semibold.ttf
+#          weight: 600
+#        - asset: assets/fonts/be_vietnam_pro_medium.ttf
+#          weight: 500
+#        - asset: assets/fonts/be_vietnam_pro_regular.ttf
+#          weight: 400
+#        - asset: assets/fonts/be_vietnam_pro_light.ttf
+#          weight: 300
+#        - asset: assets/fonts/be_vietnam_pro_thin.ttf
+#          weight: 100
+#
+#flutter_intl:
+#  enabled: true
+

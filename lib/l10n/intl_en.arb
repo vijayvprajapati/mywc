@@ -1,0 +1,8 @@
+{
+  "@@locale": "en",
+  "applicationTitle": "Flutter bloc architecture",
+  "@appName": {
+    "description": "Application Name"
+  },
+  "hello": "Hello"
+}
