@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:mywc/values/colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -20,6 +21,7 @@ class AppImage extends StatefulWidget {
   final double? roundedCorner;
   final Widget? placeHolder;
   final BoxFit? boxFit;
+  final bool isSvg;
 
   const AppImage({
     this.url,
@@ -36,6 +38,7 @@ class AppImage extends StatefulWidget {
     this.borderColor = Colors.transparent,
     this.boarderWidth = 3.0,
     this.textStyle,
+    this.isSvg = true,
     super.key,
   });
 
@@ -47,34 +50,35 @@ class _AppImageState extends State<AppImage> {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.all(Radius.circular(widget.radius)),
-      // for rounded corner
-      child: widget.url != null
-          ? CachedNetworkImage(
-              //cacheKey: Uri.parse(widget.url).pathSegments.last,
-              imageUrl: widget.url!,
-              height: widget.height ?? widget.radius * 2,
-              width: widget.width ?? widget.radius * 2,
-              fit: widget.boxFit ?? BoxFit.cover,
-              placeholder: (context, url) => placeholder,
-              errorWidget: (context, url, error) => initialPlaceholder,
-            )
-          : widget.file != null
-              ? Image(
-                  image: FileImage(File(widget.file!)),
-                  fit: BoxFit.cover,
-                  height: widget.radius * 2,
-                  width: widget.radius * 2,
-                )
-              : widget.assets != null
-                  ? Image.asset(
-                      widget.assets!,
-                      fit: BoxFit.scaleDown,
-                      height: widget.height ?? widget.radius * 2,
-                      width: widget.width ?? widget.radius * 2,
-                    )
-                  : initialPlaceholder,
-    );
+        borderRadius: BorderRadius.all(Radius.circular(widget.radius)),
+        // for rounded corner
+        child: widget.url != null
+            ? CachedNetworkImage(
+                //cacheKey: Uri.parse(widget.url).pathSegments.last,
+                imageUrl: widget.url!,
+                height: widget.height ?? widget.radius * 2,
+                width: widget.width ?? widget.radius * 2,
+                fit: widget.boxFit ?? BoxFit.cover,
+                placeholder: (context, url) => placeholder,
+                errorWidget: (context, url, error) => initialPlaceholder,
+              )
+            : widget.file != null
+                ? Image(
+                    image: FileImage(File(widget.file!)),
+                    fit: BoxFit.cover,
+                    height: widget.radius * 2,
+                    width: widget.radius * 2,
+                  )
+                : widget.assets != null && !widget.isSvg
+                    ? Image.asset(
+                        widget.assets!,
+                        fit: BoxFit.scaleDown,
+                        height: widget.height ?? widget.radius * 2,
+                        width: widget.width ?? widget.radius * 2,
+                      )
+                    : SvgPicture.asset(widget.assets!, height: widget.height ?? widget.radius * 2, width: widget.width ?? widget.radius * 2)
+        //: initialPlaceholder,
+        );
   }
 
   Widget get placeholder {
@@ -87,8 +91,7 @@ class _AppImageState extends State<AppImage> {
               scale: 0.5,
               child: const CircularProgressIndicator(
                 backgroundColor: Colors.transparent,
-                valueColor:
-                    AlwaysStoppedAnimation<Color>(AppColors.toolbarColor),
+                valueColor: AlwaysStoppedAnimation<Color>(AppColors.toolbarColor),
               ),
             ),
           );

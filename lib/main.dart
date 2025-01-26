@@ -11,23 +11,24 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mywc/data/db/app_db.dart';
 import 'package:mywc/locator/locator.dart';
+import 'package:mywc/router/app_router.dart';
 
 //background notification handling
 Future _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   debugPrint("Background notification");
   await Firebase.initializeApp();
- // PushNotificationsManager.instance.debugPrintRemoteMessage(message);
+  // PushNotificationsManager.instance.debugPrintRemoteMessage(message);
 }
 
 Future<void> main() async {
   // runZonedGuarded is used for better traceability for errors, exceptions and debugging
   runZonedGuarded(
     () async {
-     // WidgetsBinding widgetsBinding =
-       WidgetsFlutterBinding.ensureInitialized();
+      // WidgetsBinding widgetsBinding =
+      WidgetsFlutterBinding.ensureInitialized();
       //FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
-      // await Firebase.initializeApp(options: Platform.isIOS ? 
+      // await Firebase.initializeApp(options: Platform.isIOS ?
       // DefaultFirebaseOptions.currentPlatform : null);
 
       await setupLocator();
@@ -39,7 +40,7 @@ Future<void> main() async {
       //await PushNotificationsManager.instance.init();
 
       // Handling app terminated  notifications
-      firebaseMessagingTerminatedHandler();
+      //firebaseMessagingTerminatedHandler();
 
       // set error builder widget
       // ErrorWidget.builder = (FlutterErrorDetails erro
@@ -79,7 +80,7 @@ Future<void> main() async {
 class MyApp extends StatelessWidget {
   MyApp({super.key});
 
-
+  final _routes = AppRouter();
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -87,15 +88,18 @@ class MyApp extends StatelessWidget {
       // designSize: Size(),
 
       builder: (context, child) {
-        return MaterialApp(
+        return MaterialApp.router(
           debugShowCheckedModeBanner: false,
-         
+
           // your translations key
-          locale:const Locale('en', 'IN'),
-           theme: ThemeData(useMaterial3: false,),
+          locale: const Locale('en', 'IN'),
+          theme: ThemeData(
+            useMaterial3: false,
+          ),
           // navigatorObservers: [
           //   FirebaseAnalyticsObserver(analytics: analytics),
           // ],
+          routerConfig: _routes.config(),
         );
       },
     );
@@ -104,9 +108,9 @@ class MyApp extends StatelessWidget {
 
 // For handling notification when the app is in terminated state
 Future firebaseMessagingTerminatedHandler() async {
-  await Firebase.initializeApp();
+  //await Firebase.initializeApp();
   RemoteMessage? message = await FirebaseMessaging.instance.getInitialMessage();
   if (message != null) {
-   // PushNotificationsManager.instance.debugPrintRemoteMessage(message);
+    // PushNotificationsManager.instance.debugPrintRemoteMessage(message);
   }
 }

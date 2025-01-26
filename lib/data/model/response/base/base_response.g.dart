@@ -12,7 +12,7 @@ BaseResponse<T> _$BaseResponseFromJson<T>(
 ) =>
     BaseResponse<T>(
       status: json['status'] as bool?,
-      code: json['code'] as int?,
+      code: (json['code'] as num?)?.toInt(),
       message: json['message'] as String?,
       data: _$nullableGenericFromJson(json['data'], fromJsonT),
     );
@@ -20,21 +20,14 @@ BaseResponse<T> _$BaseResponseFromJson<T>(
 Map<String, dynamic> _$BaseResponseToJson<T>(
   BaseResponse<T> instance,
   Object? Function(T value) toJsonT,
-) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('status', instance.status);
-  writeNotNull('code', instance.code);
-  writeNotNull('message', instance.message);
-  writeNotNull('data', _$nullableGenericToJson(instance.data, toJsonT));
-  return val;
-}
+) =>
+    <String, dynamic>{
+      if (instance.status case final value?) 'status': value,
+      if (instance.code case final value?) 'code': value,
+      if (instance.message case final value?) 'message': value,
+      if (_$nullableGenericToJson(instance.data, toJsonT) case final value?)
+        'data': value,
+    };
 
 T? _$nullableGenericFromJson<T>(
   Object? input,

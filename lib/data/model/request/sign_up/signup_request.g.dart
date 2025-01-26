@@ -14,18 +14,10 @@ SignUpRequestModel _$SignUpRequestModelFromJson(Map<String, dynamic> json) =>
       mobileNumber: json['mobile_number'] as String?,
     );
 
-Map<String, dynamic> _$SignUpRequestModelToJson(SignUpRequestModel instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('firstname', instance.firstName);
-  writeNotNull('lastname', instance.lastName);
-  writeNotNull('emailId', instance.emailId);
-  writeNotNull('mobile_number', instance.mobileNumber);
-  return val;
-}
+Map<String, dynamic> _$SignUpRequestModelToJson(SignUpRequestModel instance) =>
+    <String, dynamic>{
+      if (instance.firstName case final value?) 'firstname': value,
+      if (instance.lastName case final value?) 'lastname': value,
+      if (instance.emailId case final value?) 'emailId': value,
+      if (instance.mobileNumber case final value?) 'mobile_number': value,
+    };

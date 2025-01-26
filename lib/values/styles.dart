@@ -43,13 +43,13 @@ class AppStyles {
   final TextStyle textSemiBold = TextStyle(
     decoration: TextDecoration.none,
     fontWeight: FontWeight.w600,
-    fontSize: 16.spMin,
+    fontSize: 17.spMin,
     overflow: TextOverflow.ellipsis,
   );
   final TextStyle textBold = TextStyle(
     decoration: TextDecoration.none,
     fontWeight: FontWeight.w700,
-    fontSize: 16.spMin,
+    fontSize: 30.spMin,
     overflow: TextOverflow.ellipsis,
   );
   final TextStyle textExtraBold = TextStyle(
