@@ -1,8 +1,10 @@
 {
   "@@locale": "en",
-  "applicationTitle": "Flutter bloc architecture",
+  "applicationTitle": "MyWc",
   "@appName": {
     "description": "Application Name"
   },
-  "hello": "Hello"
+  "witeCollar": "WiteCollar",
+  "weHelpCloseTheGap":"\"We help close the gap\""
+
 }

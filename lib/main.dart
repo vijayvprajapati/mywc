@@ -7,9 +7,11 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mywc/data/db/app_db.dart';
+import 'package:mywc/generated/l10n.dart';
 import 'package:mywc/locator/locator.dart';
 import 'package:mywc/router/app_router.dart';
 
@@ -92,7 +94,13 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
 
           // your translations key
-          locale: const Locale('en', 'IN'),
+          localizationsDelegates: const [
+            S.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales:S.delegate.supportedLocales,
           theme: ThemeData(
             useMaterial3: false,
           ),

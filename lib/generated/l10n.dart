@@ -50,21 +50,31 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `Flutter bloc architecture`
+  /// `MyWc`
   String get applicationTitle {
     return Intl.message(
-      'Flutter bloc architecture',
+      'MyWc',
       name: 'applicationTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `Hello`
-  String get hello {
+  /// `WiteCollar`
+  String get witeCollar {
     return Intl.message(
-      'Hello',
-      name: 'hello',
+      'WiteCollar',
+      name: 'witeCollar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `"We help close the gap"`
+  String get weHelpCloseTheGap {
+    return Intl.message(
+      '"We help close the gap"',
+      name: 'weHelpCloseTheGap',
       desc: '',
       args: [],
     );

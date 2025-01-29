@@ -13,5 +13,13 @@ class Assets {
   /// Assets for assetsImagesMentor
   /// asset/images/mentor.svg
   static const String assetsImagesMentor = "asset/images/mentor.svg";
+
+  /// Assets for assetsImagesWcBgChoose
+  /// asset/images/wc_bg_choose.png
+  static const String assetsImagesWcBgChoose = "asset/images/wc_bg_choose.png";
+
+  /// Assets for assetsImagesWcBgSplash
+  /// asset/images/wc_bg_splash.png
+  static const String assetsImagesWcBgSplash = "asset/images/wc_bg_splash.png";
 }
 

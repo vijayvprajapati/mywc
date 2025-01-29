@@ -22,8 +22,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "applicationTitle":
-            MessageLookupByLibrary.simpleMessage("Flutter bloc architecture"),
-        "hello": MessageLookupByLibrary.simpleMessage("Hello")
+        "applicationTitle": MessageLookupByLibrary.simpleMessage("MyWc"),
+        "weHelpCloseTheGap":
+            MessageLookupByLibrary.simpleMessage("\"We help close the gap\""),
+        "witeCollar": MessageLookupByLibrary.simpleMessage("WiteCollar")
       };
 }

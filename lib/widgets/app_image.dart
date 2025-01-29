@@ -50,35 +50,40 @@ class _AppImageState extends State<AppImage> {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-        borderRadius: BorderRadius.all(Radius.circular(widget.radius)),
-        // for rounded corner
-        child: widget.url != null
-            ? CachedNetworkImage(
-                //cacheKey: Uri.parse(widget.url).pathSegments.last,
-                imageUrl: widget.url!,
-                height: widget.height ?? widget.radius * 2,
-                width: widget.width ?? widget.radius * 2,
-                fit: widget.boxFit ?? BoxFit.cover,
-                placeholder: (context, url) => placeholder,
-                errorWidget: (context, url, error) => initialPlaceholder,
-              )
-            : widget.file != null
-                ? Image(
-                    image: FileImage(File(widget.file!)),
-                    fit: BoxFit.cover,
-                    height: widget.radius * 2,
-                    width: widget.radius * 2,
-                  )
-                : widget.assets != null && !widget.isSvg
-                    ? Image.asset(
-                        widget.assets!,
-                        fit: BoxFit.scaleDown,
-                        height: widget.height ?? widget.radius * 2,
-                        width: widget.width ?? widget.radius * 2,
-                      )
-                    : SvgPicture.asset(widget.assets!, height: widget.height ?? widget.radius * 2, width: widget.width ?? widget.radius * 2)
-        //: initialPlaceholder,
-        );
+      borderRadius: BorderRadius.all(Radius.circular(widget.radius)),
+      // for rounded corner
+      child: widget.url != null
+          ? CachedNetworkImage(
+              //cacheKey: Uri.parse(widget.url).pathSegments.last,
+              imageUrl: widget.url!,
+              height: widget.height ?? widget.radius * 2,
+              width: widget.width ?? widget.radius * 2,
+              fit: widget.boxFit ?? BoxFit.cover,
+              placeholder: (context, url) => placeholder,
+              errorWidget: (context, url, error) => initialPlaceholder,
+            )
+          : widget.file != null
+              ? Image(
+                  image: FileImage(File(widget.file!)),
+                  fit: BoxFit.cover,
+                  height: widget.radius * 2,
+                  width: widget.radius * 2,
+                )
+              : widget.assets != null
+                  ? !widget.isSvg
+                      ? Image.asset(
+                          widget.assets!,
+                          fit: BoxFit.scaleDown,
+                          height: widget.height ?? widget.radius * 2,
+                          width: widget.width ?? widget.radius * 2,
+                        )
+                      : SvgPicture.asset(
+                          widget.assets!,
+                          height: widget.height ?? widget.radius * 2,
+                          width: widget.width ?? widget.radius * 2,
+                        )
+                  : initialPlaceholder,
+    );
   }
 
   Widget get placeholder {

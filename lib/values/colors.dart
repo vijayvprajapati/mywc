@@ -30,4 +30,5 @@ class AppColors {
   static const Color transparent = Colors.transparent;
   static const MaterialColor grey = Colors.grey;
   static const Color blue = Colors.blue;
+  static const Color buttonColor= Color(0xffF29E3B);
 }

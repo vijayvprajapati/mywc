@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mywc/generated/assets.dart';
+import 'package:mywc/generated/l10n.dart';
 import 'package:mywc/ui/auth/login/login.dart';
 import 'package:mywc/values/colors.dart';
 import 'package:mywc/values/styles.dart';
+import 'package:mywc/widgets/app_button.dart';
 import 'package:mywc/widgets/app_image.dart';
 import 'package:mywc/widgets/app_text.dart';
 
@@ -18,30 +20,60 @@ class SplashScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.primaryColor,
       body: SafeArea(
-        child: Container(
+        child: SizedBox(
           width: 1.sw,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
+          height: 1.sh,
+          child: Stack(
+            // alignment: Alignment.center,
+            fit: StackFit.expand,
             children: [
-              AppImage(
-                assets: Assets.assetsImagesAppLogo,
-                height: 82.h,
-                width: 126.w,
-                isSvg: false,
-              ),
-              AppText(
-                text: 'WiteCollar',
-                textStyle: GoogleFonts.urbanist(
-                  textStyle: AppStyles().textBold,
-                  color: AppColors.white,
+              Positioned(
+                top: 0,
+                child: AppImage(
+                  assets: Assets.assetsImagesWcBgSplash,
+                  height: 0.58.sh,
+                  width: 1.sw,
+                  boxFit: BoxFit.fitHeight,
+                  isSvg: false,
                 ),
               ),
-              AppText(
-                text: '“We help close the gap”',
-                textStyle: GoogleFonts.urbanist(
-                  textStyle: AppStyles().textSemiBold,
-                  color: AppColors.white.withOpacity(0.6),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                // crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  AppImage(
+                    assets: Assets.assetsImagesAppLogo,
+                    height: 82.h,
+                    width: 126.w,
+                    isSvg: false,
+                  ),
+                  AppText(
+                    text: S.current.witeCollar,
+                    textStyle: GoogleFonts.urbanist(
+                      textStyle: AppStyles().textBold,
+                      color: AppColors.white,
+                    ),
+                  ),
+                  AppText(
+                    text: S.current.weHelpCloseTheGap,
+                    textStyle: GoogleFonts.urbanist(
+                      textStyle: AppStyles().textSemiBold,
+                      color: AppColors.white.withOpacity(0.6),
+                    ),
+                  ),
+                ],
+              ),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Padding(
+                  padding: EdgeInsets.only(bottom: 15.r),
+                  child: AppButton(
+                    btnTitle: 'Get Started',
+                    onClick: () {},
+                    borderRadius: 65.r,
+                    btnWidth: 0.8.sw,
+                    btnBgColor: AppColors.buttonColor,
+                  ),
                 ),
               ),
             ],
